@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Toto Rush</title>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Toto Rush 3D</title>
 <style>
-body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#4fc3f7;font-family:sans-serif;color:#fff;text-align:center}
-h1{font-size:48px;margin:0}
-</style>
-</head>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
+html,body{margin:0;height:100%;overflow:hidden;background:#111;font-family:system-ui,sans-serif;color:#fff;touch-action:none}
+#c{position:fixed;inset:0;width:100%;height:100%}
+.ov{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,.55);text-align:center;padding:16px;overflow:auto;touch-action:pan-y}
+.ov.on{display:flex}
+h1{margin:0;font-size:44px;text-shadow:0 3px 8px #000}
+button{font-size:20px;padding:12px 28px;border:0;border-radius:28px;background:#ff9800;color:#fff;font-weight:700}
+button:disabled{background:#666}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:rgba(255,255,255,.12);padding:10px 14px;border-radius:14px;width:min(420px,92vw)}
+#hud{position:fixed;top:0;left:0;right:0;padding:10px 14px;display:none;justify-content:space-between;font-weight:700;font-size:20px;text-shadow:0 2px 4px #000;pointer-events:none}
+#pad{position:fixed;bottom:18px;left:0;right:0;display:none;justify-content:space-around}
+#pad button{width:72px;height:72px;padding:0;border-radius:50%;background:rgba(0,0,0,.4);border:2px solid #fff8;font-size:30px}
+#ban{position:fixed;top:22%;width:100%;text-align:center;font-size:30px;font-weight:700;text-shadow:0 2px 8px #000;display:none;pointer-events:none}
+input{font-size:18px;padding:10px;border-radius:10px;border:0;width:200px;text-align:center}
+</style></head>
 <body>
-<div><h1>Toto Rush 3D</h1><p>Coming soon... 🛺</p></div>
-</body>
-</html>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0 m</span><span id="st"></span><span id="co">0</span></div>
+<div id="ban"></div>
+<div id="pad"><button id="bl">&#9664;</button><button id="bj">&#9650;</button><button id="br">&#9654;</button></div>
+<div class="ov on" id="menu"><h1>Toto Rush 3D</h1><div id="wl"></div><input id="nm" maxlength="12" placeholder="Your name"><button id="bp">Play</button><button id="bsh">Shop</button><button id="brk">Ranking</button><button id="bmu">Music: On</button></div>
+<div class="ov" id="shop"></div>
+<div class="ov" id="rank"></div>
+<div class="ov" id="over"><h1>Game Over</h1><div id="res"></div><button id="pa">Play again</button><button id="pm">Menu</button></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body></html>
